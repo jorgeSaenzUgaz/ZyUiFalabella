@@ -1,3 +1,5 @@
+import com.android.build.api.artifact.SingleArtifact
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -9,13 +11,31 @@ android {
 
     defaultConfig {
         minSdk = 21
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
+            isMinifyEnabled = true
+            androidComponents.onVariants { variant ->
+                val versionName = libs.versions.versionname.get()
+                variant.artifacts.get(SingleArtifact.AAR).outputFile.set(
+                    layout.buildDirectory.file("outputs/aar/${project.name}-${variant.name}-$versionName.aar")
+                )
+            }
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        debug {
             isMinifyEnabled = false
+            androidComponents.onVariants { variant ->
+                val versionName = libs.versions.versionname.get()
+                variant.artifacts.get(SingleArtifact.AAR).outputFile.set(
+                    layout.buildDirectory.file("outputs/aar/${project.name}-${variant.name}-$versionName.aar")
+                )
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
