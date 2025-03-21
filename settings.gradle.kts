@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ZyUiFalabella"
 include(":app")
-include(":app:zyuifalabella")
+include(":zylibuiandroid")
