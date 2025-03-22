@@ -14,4 +14,8 @@
 
     <!--Text Color-->
     <color name="zyTextColorPrimary">#000000</color>
+
+    <!--Button Color-->
+    <color name="zyButtonColorPrimary">@color/zyPrimaryColor</color>
+    <color name="zyButtonColorRipple">@color/zyAccentColor</color>
 </resources>
