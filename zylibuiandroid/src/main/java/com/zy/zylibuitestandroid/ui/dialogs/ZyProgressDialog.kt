@@ -45,7 +45,7 @@ class ZyProgressDialog(val pcContext: Context) {
                     }
 
                     mDialog?.let { dialog ->
-                        Util.translucentStatusBarDialog(dialog, pcContext)
+                        Util.changeColorStatusActionBar(dialog, pcContext)
                         dialog.findViewById<TextView>(R.id.txtMessage).text = initMsg
                         zyTextDialog = dialog.findViewById(R.id.txtMessage)
                         zyTextDialog?.setText(initMsg)

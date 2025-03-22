@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="zyPrimaryColor">#64819e</color>
+    <color name="zyAccentColor">#BDD92D</color>
+    <color name="zyPrimaryColorDark">#536d86</color>
 
-    <color name="zyprimarycolor">#925AF5</color>
-    <color name="zyaccentcolor">#1A85CC</color>
-    <color name="zycolorgreylight">#A9B0C1</color>
-    <color name="zycolorgreydark">#444B62</color>
-    <color name="zywhite">#FFFFFF</color>
-    <color name="zybackgroundcolorscreen">#FFFFFF</color>
-    <color name="zyindicatordisable">#4DFFFFFF</color>
-    <color name="zytextcolorprimary">#000000</color>
+    <!--Screen-->
+    <color name="zyBackgroundColorScreen">#FFFFFF</color>
+    <color name="zyWhite">#FFFFFF</color>
 
-    <color name="zytoolbarcolor">#ECECEC</color>
-    <color name="zystatusbarcolor">#6B6B6B</color>
+    <!--Bars-->
+    <color name="zyToolbarColor">#ECECEC</color>
+    <color name="zyStatusbarColor">#6B6B6B</color>
+
+    <!--Text Color-->
+    <color name="zyTextColorPrimary">#000000</color>
 </resources>

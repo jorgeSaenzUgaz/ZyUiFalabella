@@ -3,7 +3,7 @@
     <style name="TextViewMedium">
         <item name="android:gravity">center_vertical</item>
         <item name="fontFamily">@font/rajdhani_medium</item>
-        <item name="android:textColor">@color/zytextcolorprimary</item>
+        <item name="android:textColor">@color/zyTextColorPrimary</item>
         <item name="android:ellipsize">end</item>
     </style>
 

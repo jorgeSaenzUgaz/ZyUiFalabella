@@ -8,18 +8,18 @@
     <style name="Theme.ZyUiFalabella" parent="Base.Theme.ZyUiFalabella" />
 
     <style name="ZyToolbar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
-        <item name="colorOnPrimary">@color/zytoolbarcolor</item>
-        <item name="android:background">@color/zytoolbarcolor</item>
+        <item name="colorOnPrimary">@color/zyToolbarColor</item>
+        <item name="android:background">@color/zyToolbarColor</item>
     </style>
 
     <style name="FullScreenDialogStyle" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/zyprimarycolor</item>
-        <item name="colorPrimaryVariant">@color/zyprimarycolor</item>
-        <item name="colorOnPrimary">@color/zywhite</item>
-        <item name="colorSecondary">@color/zyprimarycolor</item>
-        <item name="colorSecondaryVariant">@color/zyprimarycolor</item>
-        <item name="colorOnSecondary">@color/zybackgroundcolorscreen</item>
+        <item name="colorPrimary">@color/zyPrimaryColor</item>
+        <item name="colorPrimaryVariant">@color/zyPrimaryColor</item>
+        <item name="colorOnPrimary">@color/zyWhite</item>
+        <item name="colorSecondary">@color/zyPrimaryColor</item>
+        <item name="colorSecondaryVariant">@color/zyPrimaryColor</item>
+        <item name="colorOnSecondary">@color/zyBackgroundColorScreen</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
