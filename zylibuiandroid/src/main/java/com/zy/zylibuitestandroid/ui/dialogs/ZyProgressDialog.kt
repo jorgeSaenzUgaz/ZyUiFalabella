@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.WindowManager
 import android.widget.TextView
 import com.zy.zylibuiandroid.R
+import com.zy.zylibuitestandroid.ui.utils.Util
 
 class ZyProgressDialog(val pcContext: Context) {
     private val TAG = ZyProgressDialog::class.java.simpleName
@@ -35,17 +36,17 @@ class ZyProgressDialog(val pcContext: Context) {
         if (!isDialogOpened()) {
             (pcContext as Activity).runOnUiThread {
                 try {
-                    mDialog = Dialog(pcContext).apply {
-                        setContentView(R.layout.view_progress_dialog)
+                    mDialog = Dialog(pcContext, R.style.FullScreenDialogStyle).apply {
+                        setContentView(R.layout.view_zy_progress_dialog)
                         window?.apply {
                             addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
                             addFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
                         }
-
-
                     }
 
                     mDialog?.let { dialog ->
+                        Util.translucentStatusBarDialog(dialog, (pcContext as Activity))
+
                         dialog.findViewById<TextView>(R.id.textView).text = initMsg
                         zyTextDialog = dialog.findViewById(R.id.textView)
                         zyTextDialog?.setText(initMsg)

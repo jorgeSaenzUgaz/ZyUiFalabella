@@ -8,6 +8,9 @@
     <color name="zycolorgreylight">#A9B0C1</color>
     <color name="zycolorgreydark">#444B62</color>
     <color name="zywhite">#FFFFFF</color>
-    <color name="zybackgroundcolorscreen">#141925</color>
+    <color name="zybackgroundcolorscreen">#FFFFFF</color>
     <color name="zyindicatordisable">#4DFFFFFF</color>
+    <color name="zytextcolorprimary">#000000</color>
+
+    <color name="zytoolbarcolor">#ECECEC</color>
 </resources>

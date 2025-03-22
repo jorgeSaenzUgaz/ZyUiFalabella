@@ -6,4 +6,26 @@
     </style>
 
     <style name="Theme.ZyUiFalabella" parent="Base.Theme.ZyUiFalabella" />
+
+    <style name="ZyToolbar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="colorOnPrimary">@color/zytoolbarcolor</item>
+        <item name="android:background">@color/zytoolbarcolor</item>
+    </style>
+
+    <style name="FullScreenDialogStyle" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/zyprimarycolor</item>
+        <item name="colorPrimaryVariant">@color/zyprimarycolor</item>
+        <item name="colorOnPrimary">@color/zywhite</item>
+        <item name="colorSecondary">@color/zyprimarycolor</item>
+        <item name="colorSecondaryVariant">@color/zyprimarycolor</item>
+        <item name="colorOnSecondary">@color/zybackgroundcolorscreen</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <!-- MODO DE USO. -->
+        <item name="windowNoTitle">true</item>
+    </style>
+
 </resources>
