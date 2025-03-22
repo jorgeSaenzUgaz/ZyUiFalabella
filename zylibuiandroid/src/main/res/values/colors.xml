@@ -13,4 +13,5 @@
     <color name="zytextcolorprimary">#000000</color>
 
     <color name="zytoolbarcolor">#ECECEC</color>
+    <color name="zystatusbarcolor">#6B6B6B</color>
 </resources>

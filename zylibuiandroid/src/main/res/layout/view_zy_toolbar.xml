@@ -5,9 +5,8 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-
         android:layout_width="match_parent"
-        android:layout_height="@dimen/zy_toolbar_height"
+        android:layout_height="?attr/actionBarSize"
         android:theme="@style/ZyToolbar">
 
         <androidx.appcompat.widget.AppCompatImageView

@@ -45,16 +45,14 @@ class ZyProgressDialog(val pcContext: Context) {
                     }
 
                     mDialog?.let { dialog ->
-                        Util.translucentStatusBarDialog(dialog, (pcContext as Activity))
-
-                        dialog.findViewById<TextView>(R.id.textView).text = initMsg
-                        zyTextDialog = dialog.findViewById(R.id.textView)
+                        Util.translucentStatusBarDialog(dialog, pcContext)
+                        dialog.findViewById<TextView>(R.id.txtMessage).text = initMsg
+                        zyTextDialog = dialog.findViewById(R.id.txtMessage)
                         zyTextDialog?.setText(initMsg)
                         dialog.show()
 
                         Log.e(TAG, "Dialog Show")
                     }
-
                 } catch (e: Exception) {
                     Log.e(TAG, e.message.toString())
                 }

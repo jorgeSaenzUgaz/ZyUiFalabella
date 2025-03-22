@@ -15,9 +15,9 @@ object Util {
             pdDialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             pdDialog.window!!.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             pdDialog.window!!.statusBarColor =
-                ContextCompat.getColor(context, R.color.zybackgroundcolorscreen)
+                ContextCompat.getColor(context, R.color.zystatusbarcolor)
             pdDialog.window!!.navigationBarColor =
-                ContextCompat.getColor(context, R.color.zybackgroundcolorscreen)
+                ContextCompat.getColor(context, R.color.zystatusbarcolor)
         }
 
         context.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
