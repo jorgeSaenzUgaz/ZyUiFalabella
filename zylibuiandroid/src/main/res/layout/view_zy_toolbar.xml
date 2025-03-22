@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:padding="@dimen/zy_toolbar_padding"
-            android:src="@drawable/zy_toolbar_logo" />
+            android:src="@drawable/zy_logo_toolbar" />
     </androidx.appcompat.widget.Toolbar>
 
 </LinearLayout>
