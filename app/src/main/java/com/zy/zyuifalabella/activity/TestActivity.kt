@@ -15,7 +15,7 @@ class TestActivity : AppCompatActivity() {
 
         var btnZyProgressDialog = findViewById<AppCompatButton>(R.id.btnZyProgressDialog)
         btnZyProgressDialog.setOnClickListener {
-            var test = ZyProgressDialog.getInstance(this)
+            var test = ZyProgressDialog(this)
             test.show("Realizando consulta de configuración.\nPor favor, espere.")
 
             // Retrasar la actualización del texto 5 segundos

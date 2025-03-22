@@ -10,30 +10,18 @@ import com.zy.zylibuiandroid.R
 import com.zy.zylibuitestandroid.ui.utils.Util
 import java.lang.ref.WeakReference
 
-class ZyProgressDialog private constructor() {
+class ZyProgressDialog(context: Context) {
     private val TAG = ZyProgressDialog::class.java.simpleName
-
     private var mDialog: Dialog? = null
     private var zyTextDialog: TextView? = null
-    private var contextRef: WeakReference<Context>? = null
-
-    companion object {
-        private val instance = ZyProgressDialog()
-
-        //Obtener la instancia sin crear múltiples diálogos
-        fun getInstance(context: Context): ZyProgressDialog {
-            instance.contextRef = WeakReference(context)
-            return instance
-        }
-    }
+    private var contextRef: WeakReference<Context> = WeakReference(context)
 
     private fun isDialogOpened(): Boolean {
         return mDialog?.isShowing ?: false
     }
 
-    //Mostrar el diálogo
     fun show(initMsg: String = "") {
-        val context = contextRef?.get()
+        val context = contextRef.get()
         if (context !is Activity || context.isFinishing) return
 
         if (!isDialogOpened()) {
@@ -57,29 +45,27 @@ class ZyProgressDialog private constructor() {
                         Log.d(TAG, "Dialog Show")
                     }
                 } catch (e: Exception) {
-                    Log.e(TAG, e.message.toString())
+                    Log.e(TAG, "Error al mostrar el diálogo: ${e.message}")
                 }
             }
         }
     }
 
-    //Cambiar el texto del diálogo
     fun setText(message: String) {
-        val context = contextRef?.get()
+        val context = contextRef.get()
         if (context !is Activity || context.isFinishing) return
 
         context.runOnUiThread {
             try {
                 zyTextDialog?.text = message
             } catch (e: Exception) {
-                Log.e(TAG, e.message.toString())
+                Log.e(TAG, "Error al cambiar el texto del diálogo: ${e.message}")
             }
         }
     }
 
-    //Cerrar el díalogo
     fun dismiss() {
-        val context = contextRef?.get()
+        val context = contextRef.get()
         if (context !is Activity || context.isFinishing) return
 
         context.runOnUiThread {
@@ -87,7 +73,7 @@ class ZyProgressDialog private constructor() {
                 mDialog?.dismiss()
                 mDialog = null
             } catch (e: Exception) {
-                Log.e(TAG, e.message.toString())
+                Log.e(TAG, "Error al cerrar el diálogo: ${e.message}")
             }
         }
     }
