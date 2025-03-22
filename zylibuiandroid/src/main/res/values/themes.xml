@@ -1,11 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.ZyUiFalabella" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.ZyUi" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/zyPrimaryColor</item>
     </style>
 
-    <style name="Theme.ZyUiFalabella" parent="Base.Theme.ZyUiFalabella" />
+    <style name="Theme.ZyTrustUi" parent="Base.Theme.ZyUi" />
 
     <style name="ZyToolbar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
         <item name="colorOnPrimary">@color/zyToolbarColor</item>
