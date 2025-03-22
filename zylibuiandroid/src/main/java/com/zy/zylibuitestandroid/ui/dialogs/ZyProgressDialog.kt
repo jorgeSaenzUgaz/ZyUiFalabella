@@ -8,35 +8,38 @@ import android.view.WindowManager
 import android.widget.TextView
 import com.zy.zylibuiandroid.R
 import com.zy.zylibuitestandroid.ui.utils.Util
+import java.lang.ref.WeakReference
 
-class ZyProgressDialog(val pcContext: Context) {
+class ZyProgressDialog private constructor() {
     private val TAG = ZyProgressDialog::class.java.simpleName
-    protected var mDialog: Dialog? = null
-    var zyTextDialog: TextView? = null
 
-    protected fun isDialogOpened(): Boolean {
-        if (mDialog == null || !mDialog!!.isShowing) {
-            return false
-        }
-        return true
-    }
+    private var mDialog: Dialog? = null
+    private var zyTextDialog: TextView? = null
+    private var contextRef: WeakReference<Context>? = null
 
-    fun setText(message: String) {
-        Log.i(TAG, "ChangeText: $message")
-        (pcContext as Activity).runOnUiThread {
-            try {
-                zyTextDialog?.text = message
-            } catch (e: Exception) {
-                Log.e(TAG, e.message.toString())
-            }
+    companion object {
+        private val instance = ZyProgressDialog()
+
+        //Obtener la instancia sin crear múltiples diálogos
+        fun getInstance(context: Context): ZyProgressDialog {
+            instance.contextRef = WeakReference(context)
+            return instance
         }
     }
 
+    private fun isDialogOpened(): Boolean {
+        return mDialog?.isShowing ?: false
+    }
+
+    //Mostrar el diálogo
     fun show(initMsg: String = "") {
+        val context = contextRef?.get()
+        if (context !is Activity || context.isFinishing) return
+
         if (!isDialogOpened()) {
-            (pcContext as Activity).runOnUiThread {
+            context.runOnUiThread {
                 try {
-                    mDialog = Dialog(pcContext, R.style.FullScreenDialogStyle).apply {
+                    mDialog = Dialog(context, R.style.FullScreenDialogStyle).apply {
                         setContentView(R.layout.view_zy_progress_dialog)
                         window?.apply {
                             addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -45,13 +48,13 @@ class ZyProgressDialog(val pcContext: Context) {
                     }
 
                     mDialog?.let { dialog ->
-                        Util.changeColorStatusActionBar(dialog, pcContext)
-                        dialog.findViewById<TextView>(R.id.txtMessage).text = initMsg
-                        zyTextDialog = dialog.findViewById(R.id.txtMessage)
-                        zyTextDialog?.setText(initMsg)
+                        Util.changeColorStatusActionBar(dialog, context)
+                        zyTextDialog = dialog.findViewById<TextView>(R.id.txtMessage).apply {
+                            text = initMsg
+                        }
                         dialog.show()
 
-                        Log.e(TAG, "Dialog Show")
+                        Log.d(TAG, "Dialog Show")
                     }
                 } catch (e: Exception) {
                     Log.e(TAG, e.message.toString())
@@ -60,12 +63,29 @@ class ZyProgressDialog(val pcContext: Context) {
         }
     }
 
-    fun dimiss() {
-        if (mDialog != null) {
+    //Cambiar el texto del diálogo
+    fun setText(message: String) {
+        val context = contextRef?.get()
+        if (context !is Activity || context.isFinishing) return
+
+        context.runOnUiThread {
             try {
-                (pcContext as Activity).runOnUiThread {
-                    mDialog?.dismiss()
-                }
+                zyTextDialog?.text = message
+            } catch (e: Exception) {
+                Log.e(TAG, e.message.toString())
+            }
+        }
+    }
+
+    //Cerrar el díalogo
+    fun dismiss() {
+        val context = contextRef?.get()
+        if (context !is Activity || context.isFinishing) return
+
+        context.runOnUiThread {
+            try {
+                mDialog?.dismiss()
+                mDialog = null
             } catch (e: Exception) {
                 Log.e(TAG, e.message.toString())
             }
