@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
+    android:id="@+id/zyToolbar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/zy_button_height"
+    android:theme="@style/ZyToolbar">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:theme="@style/ZyToolbar">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imvLogoToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:padding="@dimen/zy_toolbar_padding"
-            tools:src="@drawable/zy_logo_toolbar" />
-    </androidx.appcompat.widget.Toolbar>
-
-</LinearLayout>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imvLogoToolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitCenter"
+        android:padding="@dimen/zy_toolbar_padding"
+        tools:src="@drawable/zy_logo_toolbar" />
+</androidx.appcompat.widget.Toolbar>

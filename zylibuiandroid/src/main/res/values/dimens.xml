@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="zy_toolbar_height">50dp</dimen>
-    <dimen name="zy_toolbar_padding">15dp</dimen>
+    <dimen name="zy_toolbar_padding">10dp</dimen>
     <dimen name="zy_button_corners">10dp</dimen>
+    <dimen name="zy_button_height">48dp</dimen>
 </resources>

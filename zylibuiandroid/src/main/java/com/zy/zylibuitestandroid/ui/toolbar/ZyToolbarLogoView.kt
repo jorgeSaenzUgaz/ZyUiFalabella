@@ -13,7 +13,7 @@ class ZyToolbarLogoView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, private val defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    private val binding: ViewZyToolbarBinding
+    private val binding: ViewZyToolbarBinding = ViewZyToolbarBinding.inflate(LayoutInflater.from(context), this, true)
     private var pdLogo: Drawable? = ContextCompat.getDrawable(context, R.drawable.zy_logo_toolbar)
         set(value) {
             field = value
@@ -21,7 +21,6 @@ class ZyToolbarLogoView @JvmOverloads constructor(
         }
 
     init {
-        binding = ViewZyToolbarBinding.inflate(LayoutInflater.from(context), this, true)
         setupAttrs(context, attrs)
     }
 
@@ -35,7 +34,7 @@ class ZyToolbarLogoView @JvmOverloads constructor(
         }
     }
 
-    fun setLogo() {
+    private fun setLogo() {
         binding.imvLogoToolbar.setImageDrawable(pdLogo)
     }
 }
