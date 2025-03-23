@@ -1,8 +1,14 @@
 package com.zy.zyuifalabella.activity
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.zy.zylibuitestandroid.ui.finger.FingerIndicatorView
@@ -17,12 +23,34 @@ class FingerIndicatorTestActivity : AppCompatActivity() {
 
         pViewFingerIndicator = findViewById(R.id.viewFingerIndicator)
 
+        val bitmap = getBitmapFromMipmap(this, R.mipmap.zy_test_finger)
+
         pViewFingerIndicator?.apply {
             setFirstFingerText(text = "ÍNDICE IZQUIERDO")
             setFirstFingerImage(codFinger = "1")
+            setFirstFingerCaptureImageBitmap(bmHuellaCapturada = bitmap)
 
             setSecondFingerText(text = "ÍNDICE DERECHO")
             setSecondFingerImage(codFinger = "1")
+            setSecondFingerCaptureImageBitmap(bmHuellaCapturada = bitmap)
+        }
+    }
+
+
+    fun getBitmapFromMipmap(context: Context, resId: Int): Bitmap? {
+        val drawable: Drawable? = ContextCompat.getDrawable(context, resId)
+        return if (drawable is BitmapDrawable) {
+            drawable.bitmap
+        } else {
+            drawable?.let {
+                val bitmap = Bitmap.createBitmap(
+                    it.intrinsicWidth, it.intrinsicHeight, Bitmap.Config.ARGB_8888
+                )
+                val canvas = Canvas(bitmap)
+                it.setBounds(0, 0, canvas.width, canvas.height)
+                it.draw(canvas)
+                bitmap
+            }
         }
     }
 }

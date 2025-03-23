@@ -14,7 +14,6 @@ import androidx.core.content.ContextCompat
 import com.zy.zylibuiandroid.R
 import com.zy.zylibuiandroid.databinding.ViewFingerCardBinding
 import com.zy.zylibuiandroid.databinding.ViewFingerIndicatorBinding
-import com.zy.zylibuitestandroid.ui.utils.Util
 
 class FingerIndicatorView @JvmOverloads constructor(
     context: Context,
@@ -184,7 +183,7 @@ class FingerIndicatorView @JvmOverloads constructor(
     }
 
     fun setFirstFingerImage(codFinger: String) {
-        if(codFinger.toInt() <= 10) {
+        if (codFinger.toInt() <= 10) {
             crdFirstFinger.visibility = View.VISIBLE
             imvFirstCaptureFinger.visibility = View.GONE
             txtFirstStatusCapture.visibility = View.GONE
@@ -196,6 +195,9 @@ class FingerIndicatorView @JvmOverloads constructor(
 
     fun setFirstFingerCaptureImageBitmap(bmHuellaCapturada: Bitmap? = null) {
         bmHuellaCapturada?.let {
+            imvFirstIndicatorFinger.visibility = View.GONE
+            txtFirstStatusCapture.visibility = View.VISIBLE
+            imvFirstCaptureFinger.visibility = View.VISIBLE
             imvFirstCaptureFinger.setImageBitmap(it)
         }
     }
@@ -206,7 +208,7 @@ class FingerIndicatorView @JvmOverloads constructor(
     }
 
     fun setSecondFingerImage(codFinger: String) {
-        if(codFinger.toInt() <= 10) {
+        if (codFinger.toInt() <= 10) {
             crdSecondFinger.visibility = View.VISIBLE
             imvSecondCaptureFinger.visibility = View.GONE
             txtSecondStatusCapture.visibility = View.GONE
@@ -218,6 +220,9 @@ class FingerIndicatorView @JvmOverloads constructor(
 
     fun setSecondFingerCaptureImageBitmap(bmHuellaCapturada: Bitmap? = null) {
         bmHuellaCapturada?.let {
+            imvSecondIndicatorFinger.visibility = View.GONE
+            txtSecondStatusCapture.visibility = View.VISIBLE
+            imvSecondCaptureFinger.visibility = View.VISIBLE
             imvSecondCaptureFinger.setImageBitmap(it)
         }
     }

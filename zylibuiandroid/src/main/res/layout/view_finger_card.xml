@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/crdFinger"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="190dp"
     android:layout_margin="8dp"
     android:layout_weight="1"
     android:visibility="gone"
@@ -38,25 +38,36 @@
         <ImageView
             android:id="@+id/imvIndicatorFinger"
             android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center_horizontal" />
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            tools:visibility="gone" />
 
-        <ImageView
-            android:id="@+id/imvCaptureFinger"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center_horizontal" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtStatusCapture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/rajdhani_bold"
-            android:padding="3dp"
-            android:textColor="@color/zyTextColorFingerIndicator"
-            android:textSize="16sp"
-            tools:text="Captura Status" />
+            <ImageView
+                android:id="@+id/imvCaptureFinger"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/txtStatusCapture"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/txtStatusCapture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:fontFamily="@font/rajdhani_bold"
+                android:padding="3dp"
+                android:textColor="@color/zyTextColorFingerIndicator"
+                android:textSize="16sp"
+                tools:text="Captura Status" />
+        </RelativeLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
