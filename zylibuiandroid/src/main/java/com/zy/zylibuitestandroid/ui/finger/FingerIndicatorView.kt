@@ -172,6 +172,16 @@ class FingerIndicatorView @JvmOverloads constructor(
         crdSecondFinger.layoutParams = layoutParamsSecond
     }
 
+    private fun setQualityFinger(txtStatusCapture: TextView, piQualityFinger: Int) {
+        when(piQualityFinger){
+            in 1..50 -> txtStatusCapture.text = "Muy Mala"
+            in 51..100 -> txtStatusCapture.text = "Mala"
+            in 101..120 -> txtStatusCapture.text = "Regular"
+            in 121..140 -> txtStatusCapture.text = "Buena"
+            in 141..160 -> txtStatusCapture.text = "Muy Buena"
+        }
+    }
+
 
     /**
      * Inputs
@@ -193,12 +203,15 @@ class FingerIndicatorView @JvmOverloads constructor(
         }
     }
 
-    fun setFirstFingerCaptureImageBitmap(bmHuellaCapturada: Bitmap? = null) {
+    fun setFirstFingerCaptureImageBitmap(bmHuellaCapturada: Bitmap? = null, piQualityFinger: Int) {
         bmHuellaCapturada?.let {
             imvFirstIndicatorFinger.visibility = View.GONE
-            txtFirstStatusCapture.visibility = View.VISIBLE
+
             imvFirstCaptureFinger.visibility = View.VISIBLE
             imvFirstCaptureFinger.setImageBitmap(it)
+
+            txtFirstStatusCapture.visibility = View.VISIBLE
+            setQualityFinger(txtFirstStatusCapture, piQualityFinger)
         }
     }
 
@@ -218,12 +231,15 @@ class FingerIndicatorView @JvmOverloads constructor(
         }
     }
 
-    fun setSecondFingerCaptureImageBitmap(bmHuellaCapturada: Bitmap? = null) {
+    fun setSecondFingerCaptureImageBitmap(bmHuellaCapturada: Bitmap? = null, piQualityFinger: Int) {
         bmHuellaCapturada?.let {
             imvSecondIndicatorFinger.visibility = View.GONE
-            txtSecondStatusCapture.visibility = View.VISIBLE
+
             imvSecondCaptureFinger.visibility = View.VISIBLE
             imvSecondCaptureFinger.setImageBitmap(it)
+
+            txtSecondStatusCapture.visibility = View.VISIBLE
+            setQualityFinger(txtSecondStatusCapture, piQualityFinger)
         }
     }
 }

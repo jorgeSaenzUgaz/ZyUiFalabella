@@ -45,7 +45,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
@@ -53,20 +53,20 @@
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_above="@+id/txtStatusCapture"
-                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
                 android:layout_marginBottom="16dp" />
 
             <TextView
                 android:id="@+id/txtStatusCapture"
+                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_gravity="center"
                 android:fontFamily="@font/rajdhani_bold"
                 android:padding="3dp"
                 android:textColor="@color/zyTextColorFingerIndicator"
                 android:textSize="16sp"
-                tools:text="Captura Status" />
+                tools:text="Status finger" />
         </RelativeLayout>
     </LinearLayout>
 
