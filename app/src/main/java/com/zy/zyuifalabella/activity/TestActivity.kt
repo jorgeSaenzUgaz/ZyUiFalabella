@@ -1,5 +1,6 @@
 package com.zy.zyuifalabella.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -30,6 +31,11 @@ class TestActivity : AppCompatActivity() {
             Handler(Looper.getMainLooper()).postDelayed({
                 test.dismiss()
             }, 15000)
+        }
+
+        var btnFingerIndicator = findViewById<AppCompatButton>(R.id.btnFingerIndicator)
+        btnFingerIndicator.setOnClickListener {
+            startActivity(Intent(this, FingerIndicatorTestActivity::class.java))
         }
     }
 }

@@ -25,7 +25,7 @@ class FingerIndicatorTestActivity : AppCompatActivity() {
         pViewFingerIndicator?.apply {
             setFirstFingerText(text = "ÍNDICE IZQUIERDO")
             setFirstFingerImage(codFinger = "1")
-            setFirstFingerCaptureImageBitmap(bmHuellaCapturada = bitmap, 10)
+            //setFirstFingerCaptureImageBitmap(bmHuellaCapturada = bitmap, 10)
 
             setSecondFingerText(text = "ÍNDICE DERECHO")
             setSecondFingerImage(codFinger = "1")
