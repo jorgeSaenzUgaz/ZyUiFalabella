@@ -3,6 +3,7 @@ package com.zy.zylibuitestandroid.ui.bars
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -13,24 +14,36 @@ class IndicatorBarView @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr) {
 
     private val barPaint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val defaultColor = ContextCompat.getColor(context, android.R.color.darker_gray)
-    private val redColor = ContextCompat.getColor(context, android.R.color.holo_red_dark)
-    private val yellowColor = ContextCompat.getColor(context, android.R.color.holo_orange_light)
-    private val greenColor = ContextCompat.getColor(context, android.R.color.holo_green_dark)
+    private val defaultColor =
+        ContextCompat.getColor(context, android.R.color.darker_gray).withAlpha(0.5f)
+    private val veryBadColor =
+        ContextCompat.getColor(context, R.color.zyIndicatorBarVeryBad).withAlpha(0.5f)
+    private val badColor =
+        ContextCompat.getColor(context, R.color.zyIndicatorBarBad).withAlpha(0.5f)
+    private val mediumColor =
+        ContextCompat.getColor(context, R.color.zyIndicatorBarMedium).withAlpha(0.5f)
+    private val goodColor =
+        ContextCompat.getColor(context, R.color.zyIndicatorBarGood).withAlpha(0.5f)
+    private val veryGoodColor =
+        ContextCompat.getColor(context, R.color.zyIndicatorBarVeryGood).withAlpha(0.5f)
 
     private var indicatorLevel: Int = 1
     private val barSpacing: Float
+    private val cornerRadius: Float
 
     init {
-        // Convertir 3dp a px
-        barSpacing = 3 * context.resources.displayMetrics.density
+        val density = context.resources.displayMetrics.density
+        barSpacing = 3 * density  // Convertir 3dp a px
+        cornerRadius = 5 * density // Convertir 5dp a px
         setupAttrs(context, attrs)
     }
 
     private fun setupAttrs(context: Context, attrs: AttributeSet?) {
-        val ta = context.obtainStyledAttributes(attrs, R.styleable.IndicatorBarView, defStyleAttr, 0)
+        val ta =
+            context.obtainStyledAttributes(attrs, R.styleable.IndicatorBarView, defStyleAttr, 0)
         try {
-            indicatorLevel = ta.getInt(R.styleable.IndicatorBarView_indicatorLevel, 1).coerceIn(1, 5)
+            indicatorLevel =
+                ta.getInt(R.styleable.IndicatorBarView_indicatorLevel, 1).coerceIn(1, 5)
         } finally {
             ta.recycle()
         }
@@ -68,18 +81,29 @@ class IndicatorBarView @JvmOverloads constructor(
             barPaint.color = when {
                 i < indicatorLevel -> {
                     when (indicatorLevel) {
-                        1, 2 -> redColor
-                        3 -> yellowColor
-                        4, 5 -> greenColor
+                        1 -> veryBadColor
+                        2 -> badColor
+                        3 -> mediumColor
+                        4 -> goodColor
+                        5 -> veryGoodColor
                         else -> defaultColor
                     }
                 }
+
                 else -> defaultColor
             }
 
             val top = totalHeight - (i + 1) * barHeight - i * barSpacing
             val bottom = top + barHeight
-            canvas.drawRect(0f, top, barWidth, bottom, barPaint)
+
+            val rect = RectF(0f, top, barWidth, bottom)
+            canvas.drawRoundRect(rect, cornerRadius, cornerRadius, barPaint)
         }
+    }
+
+    // Extensión para modificar el alpha de los colores
+    private fun Int.withAlpha(alphaFactor: Float): Int {
+        val alpha = (255 * alphaFactor).toInt().coerceIn(0, 255)
+        return (this and 0x00FFFFFF) or (alpha shl 24)
     }
 }

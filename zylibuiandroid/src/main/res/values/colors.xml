@@ -22,4 +22,11 @@
     <!--Button Color-->
     <color name="zyButtonColorPrimary">@color/zyPrimaryColor</color>
     <color name="zyButtonColorRipple">@color/zyAccentColor</color>
+
+    <!--Indicator Bar-->
+    <color name="zyIndicatorBarVeryGood">#62D03F</color>
+    <color name="zyIndicatorBarGood">#62D03F</color>
+    <color name="zyIndicatorBarMedium">#D5D91A</color>
+    <color name="zyIndicatorBarBad">#FC7E1E</color>
+    <color name="zyIndicatorBarVeryBad">#FF0022</color>
 </resources>
