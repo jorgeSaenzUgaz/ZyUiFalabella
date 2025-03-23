@@ -4,6 +4,9 @@
     <color name="zyAccentColor">#BDD92D</color>
     <color name="zyPrimaryColorDark">#536d86</color>
 
+    <!--Separator-->
+    <color name="zySeparatorColor">#959595</color>
+
     <!--Screen-->
     <color name="zyBackgroundColorScreen">#FFFFFF</color>
     <color name="zyWhite">#FFFFFF</color>
@@ -14,6 +17,7 @@
 
     <!--Text Color-->
     <color name="zyTextColorPrimary">#000000</color>
+    <color name="zyTextColorFingerIndicator">@color/zyPrimaryColor</color>
 
     <!--Button Color-->
     <color name="zyButtonColorPrimary">@color/zyPrimaryColor</color>

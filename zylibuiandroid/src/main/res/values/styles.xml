@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <declare-styleable name="FingerIndicatorView">
+        <attr name="card_elevation" format="float"/>
+        <attr name="card_radius" format="float"/>
+        <attr name="color_text_finger_indicator" format="color"/>
+    </declare-styleable>
+
+
     <style name="PrimaryButton">
         <item name="android:background">@drawable/zy_button_ripple_primary</item>
         <item name="android:fontFamily">@font/rajdhani_medium</item>

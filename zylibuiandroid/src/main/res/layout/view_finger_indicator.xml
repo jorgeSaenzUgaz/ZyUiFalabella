@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/zyWhite">
+
+    <LinearLayout
+        android:id="@+id/llContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:weightSum="2">
+
+        <include
+            android:id="@+id/inclFirstFingerCard"
+            layout="@layout/view_finger_card" />
+
+        <include
+            android:id="@+id/inclSecondFingerCard"
+            layout="@layout/view_finger_card" />
+
+    </LinearLayout>
+</FrameLayout>

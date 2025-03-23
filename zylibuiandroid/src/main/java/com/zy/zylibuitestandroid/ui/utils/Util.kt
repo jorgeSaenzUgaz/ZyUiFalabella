@@ -22,5 +22,4 @@ object Util {
 
         context.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
-
 }
