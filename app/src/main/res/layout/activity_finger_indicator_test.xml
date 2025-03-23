@@ -14,9 +14,17 @@
         android:layout_height="wrap_content"
         app:color_text_finger_indicator="@color/zyAccentColor" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="16dp"
+        android:text="Indicador Bar"/>
+
     <com.zy.zylibuitestandroid.ui.bars.IndicatorBarView
+        android:layout_gravity="center_horizontal"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        app:indicatorLevel="4" />
+        app:indicatorLevel="5" />
 
 </LinearLayout>
