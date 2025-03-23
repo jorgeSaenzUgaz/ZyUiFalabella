@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,12 +12,11 @@
         android:id="@+id/viewFingerIndicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:color_text_finger_indicator="@color/zyAccentColor"/>
+        app:color_text_finger_indicator="@color/zyAccentColor" />
 
     <com.zy.zylibuitestandroid.ui.bars.IndicatorBarView
         android:layout_width="120dp"
         android:layout_height="120dp"
-        app:indicatorLevel="5"
-        />
+        app:indicatorLevel="4" />
 
 </LinearLayout>

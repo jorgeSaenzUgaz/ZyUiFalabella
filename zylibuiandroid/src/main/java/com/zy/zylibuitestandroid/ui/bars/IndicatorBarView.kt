@@ -19,8 +19,11 @@ class IndicatorBarView @JvmOverloads constructor(
     private val greenColor = ContextCompat.getColor(context, android.R.color.holo_green_dark)
 
     private var indicatorLevel: Int = 1
+    private val barSpacing: Float
 
     init {
+        // Convertir 3dp a px
+        barSpacing = 3 * context.resources.displayMetrics.density
         setupAttrs(context, attrs)
     }
 
@@ -39,8 +42,8 @@ class IndicatorBarView @JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val minWidth = 50 // Ancho mínimo
-        val minHeight = 200 // Alto mínimo
+        val minWidth = 120 // Ancho mínimo
+        val minHeight = 120 // Alto mínimo
         setMeasuredDimension(
             resolveSize(minWidth, widthMeasureSpec),
             resolveSize(minHeight, heightMeasureSpec)
@@ -52,9 +55,12 @@ class IndicatorBarView @JvmOverloads constructor(
 
         val barCount = 5
         val totalHeight = height.toFloat()
-        val barHeight = totalHeight / (barCount * 2) // Altura de cada barra
-        val barSpacing = barHeight // Espaciado entre barras
-        val barWidth = width.toFloat() // Ocupar el ancho
+
+        // Altura total sin contar el espaciado
+        val totalSpacing = barSpacing * (barCount - 1)
+        val barHeight = (totalHeight - totalSpacing) / barCount
+
+        val barWidth = width.toFloat() // Ocupar el ancho completo
 
         for (i in 0 until barCount) {
             barPaint.color = defaultColor // Color por defecto
@@ -71,7 +77,7 @@ class IndicatorBarView @JvmOverloads constructor(
                 else -> defaultColor
             }
 
-            val top = totalHeight - (i + 1) * (barHeight + barSpacing)
+            val top = totalHeight - (i + 1) * barHeight - i * barSpacing
             val bottom = top + barHeight
             canvas.drawRect(0f, top, barWidth, bottom, barPaint)
         }
