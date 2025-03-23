@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/crdFinger"
     android:layout_width="match_parent"
-    android:layout_height="190dp"
+    android:layout_height="200dp"
     android:layout_margin="8dp"
     android:layout_weight="1"
     android:visibility="gone"
@@ -32,7 +32,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:background="@color/zySeparatorColor" />
 
         <ImageView
@@ -54,7 +54,7 @@
                 android:layout_height="match_parent"
                 android:layout_above="@+id/txtStatusCapture"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="8dp" />
 
             <TextView
                 android:id="@+id/txtStatusCapture"
@@ -63,7 +63,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:fontFamily="@font/rajdhani_bold"
-                android:padding="3dp"
                 android:textColor="@color/zyTextColorFingerIndicator"
                 android:textSize="16sp"
                 tools:text="Status finger" />

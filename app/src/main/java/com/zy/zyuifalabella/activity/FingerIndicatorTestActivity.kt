@@ -32,7 +32,7 @@ class FingerIndicatorTestActivity : AppCompatActivity() {
 
             setSecondFingerText(text = "ÍNDICE DERECHO")
             setSecondFingerImage(codFinger = "1")
-            setSecondFingerCaptureImageBitmap(bmHuellaCapturada = bitmap, 140)
+            //setSecondFingerCaptureImageBitmap(bmHuellaCapturada = bitmap, 140)
         }
     }
 
