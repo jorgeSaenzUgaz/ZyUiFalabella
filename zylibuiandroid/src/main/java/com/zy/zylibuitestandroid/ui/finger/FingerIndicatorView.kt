@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import com.zy.zylibuiandroid.R
 import com.zy.zylibuiandroid.databinding.ViewFingerCardBinding
 import com.zy.zylibuiandroid.databinding.ViewFingerIndicatorBinding
+import com.zy.zylibuitestandroid.ui.bars.IndicatorBarView
 
 class FingerIndicatorView @JvmOverloads constructor(
     context: Context,
@@ -52,6 +53,7 @@ class FingerIndicatorView @JvmOverloads constructor(
     private val txtFirstFingerDescription: TextView
     private val txtFirstStatusCapture: TextView
     private val crdFirstFinger: CardView
+    private val viewFirstIndicatorBar: IndicatorBarView
 
     private val inclSecondFingerCard: ViewFingerCardBinding
     private val imvSecondIndicatorFinger: ImageView
@@ -59,6 +61,7 @@ class FingerIndicatorView @JvmOverloads constructor(
     private val txtSecondFingerDescription: TextView
     private val txtSecondStatusCapture: TextView
     private val crdSecondFinger: CardView
+    private val viewSecondIndicatorBar: IndicatorBarView
 
     init {
         binding = ViewFingerIndicatorBinding.inflate(LayoutInflater.from(context), this, true)
@@ -71,6 +74,7 @@ class FingerIndicatorView @JvmOverloads constructor(
         txtFirstStatusCapture = inclFirstFingerCard.txtStatusCapture
         imvFirstIndicatorFinger = inclFirstFingerCard.imvIndicatorFinger
         imvFirstCaptureFinger = inclFirstFingerCard.imvCaptureFinger
+        viewFirstIndicatorBar = inclFirstFingerCard.viewIndicatorBar
 
         inclSecondFingerCard = binding.inclSecondFingerCard
         crdSecondFinger = inclSecondFingerCard.crdFinger
@@ -78,6 +82,7 @@ class FingerIndicatorView @JvmOverloads constructor(
         txtSecondStatusCapture = inclSecondFingerCard.txtStatusCapture
         imvSecondIndicatorFinger = inclSecondFingerCard.imvIndicatorFinger
         imvSecondCaptureFinger = inclSecondFingerCard.imvCaptureFinger
+        viewSecondIndicatorBar = inclSecondFingerCard.viewIndicatorBar
 
         setupAttrs(context, attrs)
     }
@@ -172,13 +177,32 @@ class FingerIndicatorView @JvmOverloads constructor(
         crdSecondFinger.layoutParams = layoutParamsSecond
     }
 
-    private fun setQualityFinger(txtStatusCapture: TextView, piQualityFinger: Int) {
+    private fun setQualityFinger(
+        txtStatusCapture: TextView,
+        piQualityFinger: Int,
+        viewSecondIndicatorBar: IndicatorBarView
+    ) {
         when(piQualityFinger){
-            in 1..50 -> txtStatusCapture.text = ContextCompat.getString(context, R.string.very_bad)
-            in 51..100 -> txtStatusCapture.text = ContextCompat.getString(context, R.string.bad)
-            in 101..120 -> txtStatusCapture.text = ContextCompat.getString(context, R.string.regular)
-            in 121..140 -> txtStatusCapture.text = ContextCompat.getString(context, R.string.good)
-            in 141..160 -> txtStatusCapture.text = ContextCompat.getString(context, R.string.very_good)
+            in 1..50 -> {
+                txtStatusCapture.text = ContextCompat.getString(context, R.string.very_bad)
+                viewSecondIndicatorBar.setIndicator(1)
+            }
+            in 51..100 -> {
+                txtStatusCapture.text = ContextCompat.getString(context, R.string.bad)
+                viewSecondIndicatorBar.setIndicator(2)
+            }
+            in 101..120 -> {
+                txtStatusCapture.text = ContextCompat.getString(context, R.string.regular)
+                viewSecondIndicatorBar.setIndicator(3)
+            }
+            in 121..140 -> {
+                txtStatusCapture.text = ContextCompat.getString(context, R.string.good)
+                viewSecondIndicatorBar.setIndicator(4)
+            }
+            in 141..160 -> {
+                txtStatusCapture.text = ContextCompat.getString(context, R.string.very_good)
+                viewSecondIndicatorBar.setIndicator(5)
+            }
         }
     }
 
@@ -211,7 +235,8 @@ class FingerIndicatorView @JvmOverloads constructor(
             imvFirstCaptureFinger.setImageBitmap(it)
 
             txtFirstStatusCapture.visibility = View.VISIBLE
-            setQualityFinger(txtFirstStatusCapture, piQualityFinger)
+            viewFirstIndicatorBar.visibility = View.VISIBLE
+            setQualityFinger(txtFirstStatusCapture, piQualityFinger, viewFirstIndicatorBar)
         }
     }
 
@@ -239,7 +264,8 @@ class FingerIndicatorView @JvmOverloads constructor(
             imvSecondCaptureFinger.setImageBitmap(it)
 
             txtSecondStatusCapture.visibility = View.VISIBLE
-            setQualityFinger(txtSecondStatusCapture, piQualityFinger)
+            viewSecondIndicatorBar.visibility = View.VISIBLE
+            setQualityFinger(txtSecondStatusCapture, piQualityFinger, viewSecondIndicatorBar)
         }
     }
 }
