@@ -6,9 +6,15 @@
     android:layout_height="match_parent"
     android:background="@color/zyBackgroundColorScreen">
 
-    <include
+    <com.zy.zylibuitestandroid.ui.toolbar.ZyToolbarLogoView
         android:id="@+id/inclZyToolbar"
-        layout="@layout/view_zy_toolbar" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:logo="@drawable/zy_logo_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/progressBarBanbif"
@@ -42,9 +48,9 @@
         android:layout_width="125dp"
         android:layout_height="60dp"
         android:src="@drawable/zy_logo"
-        app:layout_constraintVertical_bias="0.95"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtMessage" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMessage"
+        app:layout_constraintVertical_bias="0.95" />
 </androidx.constraintlayout.widget.ConstraintLayout>

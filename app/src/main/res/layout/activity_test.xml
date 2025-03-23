@@ -23,4 +23,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Indicador de huella" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnToolbarLogo"
+        style="@style/PrimaryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Toolbar" />
 </LinearLayout>

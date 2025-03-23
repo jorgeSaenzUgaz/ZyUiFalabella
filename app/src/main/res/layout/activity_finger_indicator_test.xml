@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".activity.FingerIndicatorTestActivity">
 
-    <com.zy.zylibuitestandroid.ui.finger.FingerIndicatorView
+    <com.zy.zylibuitestandroid.ui.finger.ZyFingerIndicatorView
         android:id="@+id/viewFingerIndicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,12 +19,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:padding="16dp"
-        android:text="Indicador Bar"/>
+        android:text="Indicador Bar" />
 
-    <com.zy.zylibuitestandroid.ui.bars.IndicatorBarView
-        android:layout_gravity="center_horizontal"
+    <com.zy.zylibuitestandroid.ui.bars.ZyIndicatorBarView
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
         app:indicatorLevel="3" />
 
 </LinearLayout>

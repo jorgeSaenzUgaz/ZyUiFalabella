@@ -1,18 +1,21 @@
 package com.zy.zyuifalabella.activity
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
-import com.zy.zylibuitestandroid.ui.finger.FingerIndicatorView
+import com.zy.zylibuitestandroid.ui.finger.ZyFingerIndicatorView
+import com.zy.zylibuitestandroid.ui.toolbar.ZyToolbarLogoView
 import com.zy.zyuifalabella.R
 
 class FingerIndicatorTestActivity : AppCompatActivity() {
-    var pViewFingerIndicator: FingerIndicatorView? = null
+    var pViewFingerIndicator: ZyFingerIndicatorView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

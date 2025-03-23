@@ -14,9 +14,9 @@ class TestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
 
-        var btnZyProgressDialog = findViewById<AppCompatButton>(R.id.btnZyProgressDialog)
+        val btnZyProgressDialog = findViewById<AppCompatButton>(R.id.btnZyProgressDialog)
         btnZyProgressDialog.setOnClickListener {
-            var test = ZyProgressDialog(this)
+            val test = ZyProgressDialog(this)
             test.show("Realizando consulta de configuración.\nPor favor, espere.")
 
             // Retrasar la actualización del texto 5 segundos
@@ -33,9 +33,14 @@ class TestActivity : AppCompatActivity() {
             }, 15000)
         }
 
-        var btnFingerIndicator = findViewById<AppCompatButton>(R.id.btnFingerIndicator)
+        val btnFingerIndicator = findViewById<AppCompatButton>(R.id.btnFingerIndicator)
         btnFingerIndicator.setOnClickListener {
             startActivity(Intent(this, FingerIndicatorTestActivity::class.java))
+        }
+
+        val btnToolbarLogo = findViewById<AppCompatButton>(R.id.btnToolbarLogo)
+        btnToolbarLogo.setOnClickListener {
+            startActivity(Intent(this, ToolbarTestActivity::class.java))
         }
     }
 }

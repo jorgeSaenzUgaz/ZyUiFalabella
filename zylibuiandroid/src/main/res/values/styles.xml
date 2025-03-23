@@ -11,6 +11,9 @@
         <attr name="indicatorLevel" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="ZyToolbarLogoView">
+        <attr name="logo" format="reference" />
+    </declare-styleable>
 
     <style name="PrimaryButton">
         <item name="android:background">@drawable/zy_button_ripple_primary</item>
