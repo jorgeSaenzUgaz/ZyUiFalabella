@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">zylibuiandroid</string>
+
+    <string name="very_bad">Muy Mala</string>
+    <string name="bad">Mala</string>
+    <string name="regular">Regular</string>
+    <string name="good">Buena</string>
+    <string name="very_good">Muy Buena</string>
 </resources>

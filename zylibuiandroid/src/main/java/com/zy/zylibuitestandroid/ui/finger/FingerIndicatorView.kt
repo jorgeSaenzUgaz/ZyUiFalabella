@@ -174,11 +174,11 @@ class FingerIndicatorView @JvmOverloads constructor(
 
     private fun setQualityFinger(txtStatusCapture: TextView, piQualityFinger: Int) {
         when(piQualityFinger){
-            in 1..50 -> txtStatusCapture.text = "Muy Mala"
-            in 51..100 -> txtStatusCapture.text = "Mala"
-            in 101..120 -> txtStatusCapture.text = "Regular"
-            in 121..140 -> txtStatusCapture.text = "Buena"
-            in 141..160 -> txtStatusCapture.text = "Muy Buena"
+            in 1..50 -> txtStatusCapture.text = ContextCompat.getString(context, R.string.very_bad)
+            in 51..100 -> txtStatusCapture.text = ContextCompat.getString(context, R.string.bad)
+            in 101..120 -> txtStatusCapture.text = ContextCompat.getString(context, R.string.regular)
+            in 121..140 -> txtStatusCapture.text = ContextCompat.getString(context, R.string.good)
+            in 141..160 -> txtStatusCapture.text = ContextCompat.getString(context, R.string.very_good)
         }
     }
 
