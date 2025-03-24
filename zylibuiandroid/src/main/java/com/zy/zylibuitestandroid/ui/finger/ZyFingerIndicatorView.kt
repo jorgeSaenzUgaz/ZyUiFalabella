@@ -15,6 +15,7 @@ import com.zy.zylibuiandroid.R
 import com.zy.zylibuiandroid.databinding.ViewZyFingerCardBinding
 import com.zy.zylibuiandroid.databinding.ViewZyFingerIndicatorBinding
 import com.zy.zylibuitestandroid.ui.bars.ZyIndicatorBarView
+import com.zy.zylibuitestandroid.ui.utils.Extensions.dpToPx
 
 class ZyFingerIndicatorView @JvmOverloads constructor(
     context: Context,
@@ -120,10 +121,6 @@ class ZyFingerIndicatorView @JvmOverloads constructor(
         txtSecondStatusCapture.setTextColor(piColorTextFingerIndicator)
     }
 
-    private fun Context.dpToPx(dp: Float): Float {
-        return dp * resources.displayMetrics.density
-    }
-
     private fun showImageFinger(dedo: String, imgMano: ImageView) {
         when (dedo.toIntOrNull()) {
             1 -> imgMano.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.d1))
@@ -212,10 +209,18 @@ class ZyFingerIndicatorView @JvmOverloads constructor(
      */
 
     //First Finger
+    /**
+     * Permite cambiar el texto que indica cuál es el dedo que se utilizará
+     * @param text: Texto que se mostrará en el indicador.
+     */
     fun setFirstFingerText(text: String) {
         txtFirstFingerDescription.text = text
     }
 
+    /**
+     * Permite cambiar la imagen indicando el dedo que se capturará, para ello se deberá de indicar el código del dedo
+     * @param codFinger: Código del dedo que va desde 1 al 10
+     */
     fun setFirstFingerImage(codFinger: String) {
         if (codFinger.toInt() <= 10) {
             crdFirstFinger.visibility = View.VISIBLE
@@ -227,6 +232,10 @@ class ZyFingerIndicatorView @JvmOverloads constructor(
         }
     }
 
+    /**
+     * Permite cambiar la imagen del dedo que ha sido capturada por el lector
+     * @param bmHuellaCapturada: Imagen de la huella capturada
+     */
     fun setFirstFingerCaptureImageBitmap(bmHuellaCapturada: Bitmap? = null, piQualityFinger: Int) {
         bmHuellaCapturada?.let {
             imvFirstIndicatorFinger.visibility = View.GONE
@@ -241,10 +250,18 @@ class ZyFingerIndicatorView @JvmOverloads constructor(
     }
 
     //Second Finger
+    /**
+     * Permite cambiar el texto que indica cuál es el dedo que se utilizará
+     * @param text: Texto que se mostrará en el indicador.
+     */
     fun setSecondFingerText(text: String) {
         txtSecondFingerDescription.text = text
     }
 
+    /**
+     * Permite cambiar la imagen indicando el dedo que se capturará, para ello se deberá de indicar el código del dedo
+     * @param codFinger: Código del dedo que va desde 1 al 10
+     */
     fun setSecondFingerImage(codFinger: String) {
         if (codFinger.toInt() <= 10) {
             crdSecondFinger.visibility = View.VISIBLE
@@ -256,6 +273,10 @@ class ZyFingerIndicatorView @JvmOverloads constructor(
         }
     }
 
+    /**
+     * Permite cambiar la imagen del dedo que ha sido capturada por el lector
+     * @param bmHuellaCapturada: Imagen de la huella capturada
+     */
     fun setSecondFingerCaptureImageBitmap(bmHuellaCapturada: Bitmap? = null, piQualityFinger: Int) {
         bmHuellaCapturada?.let {
             imvSecondIndicatorFinger.visibility = View.GONE

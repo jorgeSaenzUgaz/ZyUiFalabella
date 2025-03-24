@@ -20,6 +20,9 @@ class ZyProgressDialog(context: Context) {
         return mDialog?.isShowing ?: false
     }
 
+    /** Permite mostrar el diálogo con un mensaje inicial
+     * @param initMsg: Mensaje inicial que se mostrará en el diálogo.
+     */
     fun show(initMsg: String = "") {
         val context = contextRef.get()
         if (context !is Activity || context.isFinishing) return
@@ -51,6 +54,10 @@ class ZyProgressDialog(context: Context) {
         }
     }
 
+    /**
+     * Permite cambiar el texto del diálogo mientras este se encuentre abierto
+     * @param message: Mensaje que se mostrará en el diálogo.
+     */
     fun setText(message: String) {
         val context = contextRef.get()
         if (context !is Activity || context.isFinishing) return
@@ -64,6 +71,9 @@ class ZyProgressDialog(context: Context) {
         }
     }
 
+    /**
+     * Permite cerrar el diálogo
+     */
     fun dismiss() {
         val context = contextRef.get()
         if (context !is Activity || context.isFinishing) return

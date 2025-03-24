@@ -8,6 +8,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.zy.zylibuiandroid.R
+import com.zy.zylibuitestandroid.ui.utils.Extensions.withAlpha
 
 class ZyIndicatorBarView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, private val defStyleAttr: Int = 0
@@ -47,11 +48,6 @@ class ZyIndicatorBarView @JvmOverloads constructor(
         } finally {
             ta.recycle()
         }
-    }
-
-    fun setIndicator(level: Int) {
-        indicatorLevel = level.coerceIn(1, 5)
-        invalidate()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -101,9 +97,15 @@ class ZyIndicatorBarView @JvmOverloads constructor(
         }
     }
 
-    // Extensión para modificar el alpha de los colores
-    private fun Int.withAlpha(alphaFactor: Float): Int {
-        val alpha = (255 * alphaFactor).toInt().coerceIn(0, 255)
-        return (this and 0x00FFFFFF) or (alpha shl 24)
+    /**
+     * Inputs
+     */
+
+    /** Ingresar valor que se mostrará marcado en las barras las cuales varían el color según el valor ingresado
+     * @param level: Ingresar un valor entre 1 y 5. Donde 1 es muy mala, 2 es mala, 3 es regular, 4 es buena y 5 es muy buena.
+     */
+    fun setIndicator(level: Int) {
+        indicatorLevel = level.coerceIn(1, 5)
+        invalidate()
     }
 }
