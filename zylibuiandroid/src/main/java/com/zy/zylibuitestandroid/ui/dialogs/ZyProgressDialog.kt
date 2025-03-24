@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.WindowManager
 import android.widget.TextView
 import com.zy.zylibuiandroid.R
+import com.zy.zylibuitestandroid.ui.utils.Extensions.changeColorStatusActionBar
 import com.zy.zylibuitestandroid.ui.utils.Util
 import java.lang.ref.WeakReference
 
@@ -39,7 +40,7 @@ class ZyProgressDialog(context: Context) {
                     }
 
                     mDialog?.let { dialog ->
-                        Util.changeColorStatusActionBar(dialog, context)
+                        context.changeColorStatusActionBar(dialog)
                         zyTextDialog = dialog.findViewById<TextView>(R.id.txtMessage).apply {
                             text = initMsg
                         }

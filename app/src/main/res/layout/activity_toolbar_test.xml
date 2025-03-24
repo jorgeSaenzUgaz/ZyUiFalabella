@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ToolbarTestActivity">
+    tools:context=".activity.ToolbarTestActivity"
+    android:background="@color/zyBackgroundColorScreen">
 
     <com.zy.zylibuitestandroid.ui.toolbar.ZyToolbarLogoView
         android:id="@+id/inclZyToolbar"
